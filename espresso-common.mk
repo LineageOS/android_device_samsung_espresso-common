@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
+ADDITIONAL_BUILD_PROPERTIES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
@@ -78,7 +78,7 @@ PRODUCT_PACKAGES += \
     f2fstat
 
 # Storage
-PRODUCT_PROPERTY_OVERRIDES += \
+ADDITIONAL_BUILD_PROPERTIES += \
     persist.sys.isUsbOtgEnabled=true
 
 # Set default USB interface
@@ -95,7 +95,7 @@ PRODUCT_PACKAGES += \
     dock_kbd_attach
 
 ifneq ($(filter p3100 p5100,$(TARGET_DEVICE)),)
-PRODUCT_PROPERTY_OVERRIDES += \
+ADDITIONAL_BUILD_PROPERTIES += \
     ro.telephony.ril_class=SamsungOmap4RIL
 endif
 
@@ -130,11 +130,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
+ADDITIONAL_BUILD_PROPERTIES += \
     ro.opengles.version=131072 \
     ro.bq.gpu_to_cpu_unsupported=1
 
-PRODUCT_PROPERTY_OVERRIDES += \
+ADDITIONAL_BUILD_PROPERTIES += \
     dalvik.vm.dex2oat-flags=--no-watch-dog
 
 PRODUCT_TAGS += dalvik.gc.type-precise
