@@ -38,6 +38,9 @@ BOARD_KERNEL_BASE := 0x40000000
 # Use dlmalloc
 MALLOC_IMPL := dlmalloc
 
+# Dex Pre-opt
+WITH_DEXPREOPT := true
+
 # External SGX Module
 SGX_MODULES:
 	make clean -C $(HARDWARE_TI_OMAP4_BASE)/pvr-source/eurasiacon/build/linux2/omap4430_android
