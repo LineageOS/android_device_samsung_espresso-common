@@ -36,6 +36,9 @@ BOARD_KERNEL_BASE := 0x40000000
 # Use dlmalloc
 MALLOC_IMPL := dlmalloc
 
+# Dex Pre-opt
+WITH_DEXPREOPT := true
+
 # Init
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
