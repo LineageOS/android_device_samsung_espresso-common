@@ -101,7 +101,14 @@ BOARD_SEPOLICY_UNION += \
     orientationd.te \
     gpsd.te \
     smc_pa.te \
-    sysinit.te
+    sysinit.te \
+    bluetooth.te \
+    domain.te \
+    init.te \
+    pvrsrvinit.te \
+    radio.te \
+    rild.te \
+    wpa_supplicant.te
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
