@@ -127,5 +127,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-flags=--no-watch-dog
+
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
