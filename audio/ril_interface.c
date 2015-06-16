@@ -40,6 +40,7 @@ int (*_ril_set_call_clock_sync)(void *, enum ril_clock_state);
 int (*_ril_set_two_mic_control)(void *, enum ril_two_mic_device, enum ril_two_mic_state);
 int (*_ril_register_unsolicited_handler)(void *, int, void *);
 int (*_ril_get_wb_amr)(void *, void *);
+int (*_ril_set_mic_mute)(void *, enum ril_mic_mute);
 
 /* Audio WB AMR callback */
 void (*_audio_set_wb_amr_callback)(void *, int);
@@ -110,13 +111,14 @@ int ril_open(struct ril_handle *ril)
     _ril_set_two_mic_control = dlsym(ril->handle, "SetTwoMicControl");
     _ril_register_unsolicited_handler = dlsym(ril->handle,
                                               "RegisterUnsolicitedHandler");
+    _ril_set_mic_mute = dlsym(ril->handle, "SetMute");
     /* since this function is not supported in all RILs, don't require it */
     _ril_get_wb_amr = dlsym(ril->handle, "GetWB_AMR");
 
     if (!_ril_open_client || !_ril_close_client || !_ril_connect ||
         !_ril_is_connected || !_ril_disconnect || !_ril_set_call_volume ||
         !_ril_set_call_audio_path || !_ril_set_two_mic_control || !_ril_set_call_clock_sync ||
-        !_ril_register_unsolicited_handler) {
+        !_ril_register_unsolicited_handler || !_ril_set_mic_mute) {
         ALOGE("Cannot get symbols from '%s'", RIL_CLIENT_LIBPATH);
         dlclose(ril->handle);
         return -1;
@@ -190,4 +192,12 @@ int ril_set_two_mic_control(struct ril_handle *ril, enum ril_two_mic_device devi
         return 0;
 
     return _ril_set_two_mic_control(ril->client, device, state);
+}
+
+int ril_set_mic_mute(struct ril_handle *ril, enum ril_mic_mute state)
+{
+    if (ril_connect_if_required(ril))
+        return 0;
+
+    return _ril_set_mic_mute(ril->client, state);
 }
