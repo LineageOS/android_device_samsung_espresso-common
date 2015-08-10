@@ -109,6 +109,7 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     dock_kbd_attach.te \
     domain.te \
+    execmem.te \
     file.te \
     file_contexts \
     geomagneticd.te \
@@ -120,6 +121,7 @@ BOARD_SEPOLICY_UNION += \
     rild.te \
     smc_pa.te \
     sysinit.te \
+    system_server.te \
     wpa_supplicant.te
 
 # Recovery

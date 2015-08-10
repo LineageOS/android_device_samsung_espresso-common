@@ -1,0 +1,7 @@
+allow {
+geomagneticd
+gpsd
+init
+orientationd
+rild
+} self:process execmem;
