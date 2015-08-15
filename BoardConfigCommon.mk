@@ -21,8 +21,6 @@
 # Inherit CM specific board config
 -include device/samsung/espresso-common/BoardConfigCM.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/espresso-common/include
-
 TARGET_NO_BOOTLOADER := true
 
 TARGET_BOOTLOADER_BOARD_NAME := piranha
