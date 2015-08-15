@@ -88,9 +88,6 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 # Sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 
-# Security
-BOARD_USES_SECURE_SERVICES := true
-
 # Selinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/espresso-common/sepolicy
