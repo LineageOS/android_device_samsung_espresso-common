@@ -19,6 +19,9 @@
 
 -include device/samsung/omap4-common/BoardConfigCommon.mk
 
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
+
 USE_CAMERA_STUB := true
 
 TARGET_NO_BOOTLOADER := true
