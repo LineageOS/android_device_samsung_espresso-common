@@ -24,8 +24,6 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
 BOARD_VENDOR := samsung
 
-USE_CAMERA_STUB := true
-
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
@@ -91,9 +89,6 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
-
-# Security
-BOARD_USES_SECURE_SERVICES := true
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \
