@@ -24,6 +24,11 @@ on init
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
 
+# KSM
+    write /sys/kernel/mm/ksm/pages_to_scan 100
+    write /sys/kernel/mm/ksm/sleep_millisecs 500
+    write /sys/kernel/mm/ksm/run 1
+
 # Preload libjhead for camera
     export LD_PRELOAD /system/lib/libjhead.so
 
