@@ -436,6 +436,7 @@ public class SamsungOmap4RIL extends RIL implements CommandsInterface {
         }
     }
 
+<<<<<<< HEAD
     @Override
     public void setPreferredNetworkType(int networkType , Message response) {
         riljLog("setPreferredNetworkType: " + networkType);
@@ -457,6 +458,24 @@ public class SamsungOmap4RIL extends RIL implements CommandsInterface {
             AsyncResult.forMessage(response, ret, null);
             response.sendToTarget();
         }
+    }
+
+    protected Object
+    responseFailCause(Parcel p) {
+        int numInts;
+        int response[];
+
+        numInts = p.readInt();
+        response = new int[numInts];
+        for (int i = 0 ; i < numInts ; i++) {
+            response[i] = p.readInt();
+        }
+        LastCallFailCause failCause = new LastCallFailCause();
+        failCause.causeCode = response[0];
+        if (p.dataAvail() > 0) {
+          failCause.vendorCause = p.readString();
+        }
+        return failCause;
     }
 
 }
