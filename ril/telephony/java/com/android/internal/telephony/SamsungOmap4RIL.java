@@ -119,6 +119,7 @@ public class SamsungOmap4RIL extends RIL implements CommandsInterface {
     static final int RIL_UNSOL_UTS_GET_UNREAD_SMS_STATUS = 11031;
     static final int RIL_UNSOL_MIP_CONNECT_STATUS = 11032;
 
+    private boolean setPreferredNetworkTypeSeen = false;
     private Object mCatProCmdBuffer;
 
     public SamsungOmap4RIL(Context context, int networkMode, int cdmaSubscription, Integer instanceid) {
@@ -429,6 +430,19 @@ public class SamsungOmap4RIL extends RIL implements CommandsInterface {
                                 new AsyncResult (null, mCatProCmdBuffer, null));
             mCatProCmdBuffer = null;
         }
+    }
+
+    @Override
+    public void setPreferredNetworkType(int networkType , Message response) {
+        riljLog("setPreferredNetworkType: " + networkType);
+
+        if (!setPreferredNetworkTypeSeen) {
+            riljLog("Need to reboot modem!");
+            setRadioPower(false, null);
+            setPreferredNetworkTypeSeen = true;
+        }
+
+        super.setPreferredNetworkType(networkType, response);
     }
 
 }
