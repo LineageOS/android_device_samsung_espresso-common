@@ -1,4 +1,5 @@
 import init.${ro.hardware}.usb.rc
+import init.omap4.rc
 
 on init
     symlink /sdcard /mnt/sdcard
@@ -251,14 +252,6 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on boot
-
-# initialize the SGX driver
-service pvrsrvinit /system/bin/pvrsrvinit
-    class core
-    user root
-    group root
-    oneshot
-    disabled
 
 # SMC Service
 service tf_daemon /system/bin/tf_daemon \
