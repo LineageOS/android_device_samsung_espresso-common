@@ -107,6 +107,10 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Samsung dock keyboard
 PRODUCT_PACKAGES += \
     dock_kbd_attach
