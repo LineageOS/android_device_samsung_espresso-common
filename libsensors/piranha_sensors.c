@@ -25,6 +25,8 @@
 #include <hardware/sensors.h>
 #include <hardware/hardware.h>
 
+#define LOG_NDEBUG 0
+
 #define LOG_TAG "piranha_sensors"
 #include <utils/Log.h>
 
@@ -160,23 +162,29 @@ int piranha_sensors_poll(struct sensors_poll_device_t *dev,
 	int c, n;
 	int poll_rc, rc;
 
-//	ALOGD("%s(%p, %p, %d)", __func__, dev, data, count);
+	ALOGD("+%s(%p, %p, %d)", __func__, dev, data, count);
 
-	if (dev == NULL)
+	if (dev == NULL) {
+		ALOGE("%s: dev is NULL", __func__);
 		return -EINVAL;
+	}
 
 	device = (struct piranha_sensors_device *) dev;
 
 	if (device->handlers == NULL || device->handlers_count <= 0 ||
-		device->poll_fds == NULL || device->poll_fds_count <= 0)
+		device->poll_fds == NULL || device->poll_fds_count <= 0) {
+		ALOGE("%s: dev has an invalid value", __func__);
 		return -EINVAL;
+	}
 
 	n = 0;
 
 	do {
 		poll_rc = poll(device->poll_fds, device->poll_fds_count, n > 0 ? 0 : -1);
-		if (poll_rc < 0)
+		if (poll_rc < 0) {
+			ALOGE("%s: poll_rc < 0", __func__);
 			return -1;
+		}
 
 		for (i = 0; i < device->poll_fds_count; i++) {
 			if (!(device->poll_fds[i].revents & POLLIN))
@@ -197,6 +205,8 @@ int piranha_sensors_poll(struct sensors_poll_device_t *dev,
 			}
 		}
 	} while ((poll_rc > 0 || n < 1) && count > 0);
+
+	ALOGD("-%s(%p, %p, %d)", __func__, dev, data, count);
 
 	return n;
 }
