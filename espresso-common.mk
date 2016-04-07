@@ -68,9 +68,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# Samsung symbols
+# RIL
 PRODUCT_PACKAGES += \
-    libsamsung_symbols
+    libsecril-client \
+    libsecril-compat
 
 # Media profiles
 PRODUCT_COPY_FILES += \
@@ -106,8 +107,7 @@ PRODUCT_PACKAGES += \
     power.piranha \
     sensors.piranha \
     geomagneticd \
-    orientationd \
-    libsecril-client
+    orientationd
 
 # F2FS filesystem
 PRODUCT_PACKAGES += \
