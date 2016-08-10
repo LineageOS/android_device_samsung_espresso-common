@@ -66,11 +66,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# RIL
-PRODUCT_PACKAGES += \
-    libsecril-client \
-    libsecril-compat
-
 # Media profiles
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
@@ -121,9 +116,6 @@ PRODUCT_PACKAGES += \
 # Samsung dock keyboard
 PRODUCT_PACKAGES += \
     dock_kbd_attach
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungOmap4RIL
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
