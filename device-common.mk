@@ -112,9 +112,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     dock_kbd_attach
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungOmap4RIL
-
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
