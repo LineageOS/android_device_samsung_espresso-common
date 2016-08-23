@@ -15,11 +15,11 @@
 # limitations under the License.
 #
 
-# Inherit CM specific board config
--include device/samsung/espresso-common/BoardConfigCM.mk
-
 # Inherit common omap4 board config
 -include hardware/ti/omap4/BoardConfigCommon.mk
+
+# Inherit CM specific board config
+-include device/samsung/espresso-common/BoardConfigCM.mk
 
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/espresso-common/include
 
