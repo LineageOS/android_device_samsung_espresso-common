@@ -6,6 +6,3 @@ PRODUCT_PACKAGES += \
     libsecril-compat \
     libsecril-shim \
     libsecnativefeature
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.telephony.ril_class=SamsungOmap4RIL
