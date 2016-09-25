@@ -88,7 +88,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.usb.default \
     camera.omap4 \
-    lights.piranha \
+    lights.omap4 \
     libinvensense_mpl \
     power.piranha \
     sensors.piranha \
