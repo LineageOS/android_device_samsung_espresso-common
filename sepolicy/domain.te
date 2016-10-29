@@ -1,2 +1,4 @@
+domain_trans(init, rootfs, cpboot-daemon)
+
 ## Firmwares
 allow ueventd { firmware_ducati }:file r_file_perms;

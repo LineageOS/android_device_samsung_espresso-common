@@ -9,3 +9,6 @@ allow init tmpfs:lnk_file create;
 
 # For mounting debugfs
 allow init debugfs:dir mounton;
+
+# Requied to load shim libs
+allow init rild:process noatsecure;
