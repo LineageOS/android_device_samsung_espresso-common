@@ -13,3 +13,13 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 BOARD_HAS_DOWNLOAD_MODE := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/espresso-common/sepolicy-custom
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    property.te \
+    property_contexts \
+    variant_setup.te
