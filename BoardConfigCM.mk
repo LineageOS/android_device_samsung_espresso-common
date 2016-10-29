@@ -14,3 +14,7 @@ BOARD_SEPOLICY_DIRS += \
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 BOARD_HAS_DOWNLOAD_MODE := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/espresso-common/sepolicy-custom
