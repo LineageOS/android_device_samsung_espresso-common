@@ -1,4 +1,4 @@
-$(call inherit-product, device/samsung/espresso-common/espresso-common.mk)
+$(call inherit-product, device/samsung/espresso-common/device-common.mk)
 
 # RIL
 PRODUCT_PACKAGES += \
