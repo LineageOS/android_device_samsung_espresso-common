@@ -16,3 +16,13 @@ TARGET_RECOVERY_DEVICE_DIRS += device/samsung/espresso-common
 
 # Charging mode
 BOARD_CHARGER_RES := device/samsung/espresso-common/res/charger
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/espresso-common/sepolicy-custom
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    property.te \
+    property_contexts \
+    variant_setup.te
