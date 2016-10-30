@@ -1,6 +1,5 @@
 #
 # Copyright (C) 2016 The Android Open Source Project
-# Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +12,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH := device/samsung/espresso-common
 
-# HAL module implemenation stored in
-# hw/<LIGHTS_HARDWARE_MODULE_ID>.<ro.board.platform>.so
-include $(CLEAR_VARS)
+# Recovery Ramdisk
+PRODUCT_PACKAGES += \
+    $(LOCAL_PATH)/recovery/root/init.recovery.espresso.rc:recovery/root/init.recovery.espresso.rc
 
-LOCAL_SRC_FILES := lights.c
-LOCAL_CFLAGS := -Wall -Werror
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
-LOCAL_SHARED_LIBRARIES := liblog
-LOCAL_MODULE := lights.omap4
-LOCAL_MODULE_TAGS := optional
-
-include $(BUILD_SHARED_LIBRARY)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init.espresso.variant.sh:system/bin/init.espresso.variant.sh
