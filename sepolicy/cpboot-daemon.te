@@ -1,4 +1,7 @@
 type cpboot-daemon, domain;
+type cpboot-daemon_exec, exec_type, file_type;
+
+init_daemon_domain(cpboot-daemon);
 
 allow cpboot-daemon cbd_device:chr_file create_file_perms;
 allow cpboot-daemon cgroup:dir { create add_name };
