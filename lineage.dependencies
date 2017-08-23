@@ -4,7 +4,7 @@
         "target_path": "hardware/ti/omap4"
     },
     {
-        "repository": "android_kernel_samsung_espresso10",
-        "target_path": "kernel/samsung/espresso10"
+        "repository": "android_kernel_ti_omap4",
+        "target_path": "kernel/ti/omap4"
     }
 ]
