@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# Inherit CM specific board config
+# Inherit LineageOS specific board config
 -include device/samsung/espresso-common/BoardConfigCM.mk
 
 # Inherit common omap4 board config
